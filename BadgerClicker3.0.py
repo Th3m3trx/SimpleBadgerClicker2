@@ -53,7 +53,7 @@ class BadgerClickerGame:
         self.badger_count_label["text"] = "Badger count: 0"
         self.total_clicks_label["text"] = "Total clicks: 0"
 
-        #Create the stats window and create labels for it
+        # Ceate the stats window and create labels for it
     def open_stats_window(self):
         if self.stats_window is None or not self.stats_window.winfo_exists():
             self.stats_window = tk.Toplevel(self.main_window)
@@ -63,7 +63,7 @@ class BadgerClickerGame:
                                              "\nTough Badger count: " + str(self.item1_count) + "\nGolden Badger count: " + str(self.item2_count))
             stats_label.pack()
 
-            #Create the shop window and create labels and buttons for it
+            # reate the shop window and create labels and buttons for it
     def open_shop_window(self):
         if self.shop_window is None or not self.shop_window.winfo_exists():
             self.shop_window = tk.Toplevel(self.main_window)
@@ -78,6 +78,7 @@ class BadgerClickerGame:
             item2_button = tk.Button(self.shop_window, text="Golden Badger (20 Badgers)", command=self.buy_item2)
             item2_button.pack()
 
+            # Create the name and data for the first item
     def buy_item1(self):
         if self.badger_count >= 10:
             self.badger_count -= 10
@@ -88,6 +89,7 @@ class BadgerClickerGame:
         else:
             print("Not enough badgers to buy Tough Badger!")
 
+            # Create the name and data for the second item
     def buy_item2(self):
         if self.badger_count >= 20:
             self.badger_count -= 20
@@ -98,6 +100,7 @@ class BadgerClickerGame:
         else:
             print("Not enough badgers to buy Item 2!")
 
+           # Create and updater to change the stats window according to the data
     def update_stats_window(self):
         if self.stats_window is not None and self.stats_window.winfo_exists():
             stats_label = tk.Label(self.stats_window, text="Badger count: " + str(self.badger_count) + "\nTotal clicks: " + str(self.total_clicks))
