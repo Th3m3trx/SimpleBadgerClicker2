@@ -96,9 +96,9 @@ class BadgerClickerGame:
             self.item2_count += 1
             self.badger_count_label["text"] = "Badger count: " + str(self.badger_count)
             self.update_stats_window()
-            print("Item 2 purchased!")
+            print("Golden Badger purchased!")
         else:
-            print("Not enough badgers to buy Item 2!")
+            print("Not enough badgers to buy Golden Badger!")
 
            # Create and updater to change the stats window according to the data
     def update_stats_window(self):
@@ -109,7 +109,7 @@ class BadgerClickerGame:
             item1_label = tk.Label(self.stats_window, text="Tough Badger count: " + str(self.item1_count))
             item1_label.pack()
 
-            item2_label = tk.Label(self.stats_window, text="Golden Badger2 count: " + str(self.item2_count))
+            item2_label = tk.Label(self.stats_window, text="Golden Badger count: " + str(self.item2_count))
             item2_label.pack()
 
 # Create an instance of the game
