@@ -11,46 +11,49 @@ class BadgerClickerGame:
         self.main_window = tk.Tk()
         self.main_window.title("Badger Clicker")
 
-        # Create labels
+        # Create labels for main window
         self.badger_count_label = tk.Label(self.main_window, text="Badger count: 0")
         self.badger_count_label.pack()
 
         self.total_clicks_label = tk.Label(self.main_window, text="Total clicks: 0")
         self.total_clicks_label.pack()
 
-        # Create buttons
+        # Create buttons for main window
         self.badger_button = tk.Button(self.main_window, text="Click the Badger!", command=self.click_badger)
         self.badger_button.pack()
 
         self.reset_button = tk.Button(self.main_window, text="Reset", command=self.reset_game)
         self.reset_button.pack()
 
-        # Create additional buttons
+        # Create buttons to open seperate windpws
         self.stats_button = tk.Button(self.main_window, text="View Statistics", command=self.open_stats_window)
         self.stats_button.pack()
 
         self.shop_button = tk.Button(self.main_window, text="Visit Shop", command=self.open_shop_window)
         self.shop_button.pack()
 
-        # Initialize other windows
+        # Create seperate windows
         self.stats_window = None
         self.shop_window = None
 
-        # Start the main loop
+        # Create the main loop
         self.main_window.mainloop()
 
+        # Create counter for stats window
     def click_badger(self):
         self.badger_count += 1
         self.total_clicks += 1
         self.badger_count_label["text"] = "Badger count: " + str(self.badger_count)
         self.total_clicks_label["text"] = "Total clicks: " + str(self.total_clicks)
 
+        # Create a reset feature 
     def reset_game(self):
         self.badger_count = 0
         self.total_clicks = 0
         self.badger_count_label["text"] = "Badger count: 0"
         self.total_clicks_label["text"] = "Total clicks: 0"
 
+        #Create the stats window and create labels for it
     def open_stats_window(self):
         if self.stats_window is None or not self.stats_window.winfo_exists():
             self.stats_window = tk.Toplevel(self.main_window)
@@ -60,20 +63,7 @@ class BadgerClickerGame:
                                              "\nTough Badger count: " + str(self.item1_count) + "\nGolden Badger count: " + str(self.item2_count))
             stats_label.pack()
 
-    def open_shop_window(self):
-        if self.shop_window is None or not self.shop_window.winfo_exists():
-            self.shop_window = tk.Toplevel(self.main_window)
-            self.shop_window.title("Shop")
-
-            item_label = tk.Label(self.shop_window, text="Items:")
-            item_label.pack()
-
-            item1_button = tk.Button(self.shop_window, text="Tough Badger (10 Badgers)", command=self.buy_item1)
-            item1_button.pack()
-
-            item2_button = tk.Button(self.shop_window, text="Golden Badger (20 Badgers)", command=self.buy_item2)
-            item2_button.pack()
-
+            #Create the shop window and create labels and buttons for it
     def open_shop_window(self):
         if self.shop_window is None or not self.shop_window.winfo_exists():
             self.shop_window = tk.Toplevel(self.main_window)
